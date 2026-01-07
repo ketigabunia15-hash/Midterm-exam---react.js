@@ -64,3 +64,34 @@ export default function Home() {
     </div>
   );
 }
+
+'use client';
+import { useEffect, useState } from "react";
+export default function HomePage() {
+  const [posts, setPosts]=useState([]);
+  const [loading, setLoading]=useState(true);
+
+  use useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      });
+  , []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+    return (
+      <div style={{ padding: '40px'}}> 
+      <h1>Product List</h1>
+
+      {posts.map(post => (
+        <div key={post.id} style={{marginBottom: '20px'}}>
+          <h3>{post.title}</h3>
+          <p>{post.body}</p>
+        </div>
+      ))}
+      </div>
+    );
+  }
