@@ -103,17 +103,3 @@ export default function HomePage() {
   }
 
 }
-
-export default function ProductsPage() {
-  return<h1>Products Page </h1>;
-}
-
-export default function ProfilePage() {
-  return <h1>Profile Page</h1>;
-}
-
-export default function CartPage() {
-  return <h1>Cart Page</h1>;
-}
-
-

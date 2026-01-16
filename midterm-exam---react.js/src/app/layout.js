@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
+import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
 importy './globals.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+
 export const metadata={
   title:'Midterm Project',
 };
@@ -45,15 +46,4 @@ export default function RootLayout({children}){
   );
 }
 
-import NavBar from '../components/NavBar';
 
-export default function RootLayout({children}) {
-  return(
-    <html lang="en">
-      <body>
-        <NavBar/>
-        {children}
-      </body>
-    </html>
-  );
-}
