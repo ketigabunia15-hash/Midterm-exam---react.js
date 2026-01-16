@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   );
 }
 
-importy './globals.css';
+import './globals.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
