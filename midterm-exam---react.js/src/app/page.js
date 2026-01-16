@@ -66,12 +66,13 @@ export default function Home() {
 }
 
 'use client';
+
 import { useEffect, useState } from "react";
 export default function HomePage() {
   const [posts, setPosts]=useState([]);
   const [loading, setLoading]=useState(true);
 
-  use useEffect(() => {
+  useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
       .then((data) => {

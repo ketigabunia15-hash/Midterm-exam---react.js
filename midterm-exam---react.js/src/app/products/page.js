@@ -33,3 +33,7 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+export default function ProductsPage() {
+    return <h1>Products Page </h1>;
+}
