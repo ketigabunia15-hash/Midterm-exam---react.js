@@ -1,11 +1,12 @@
-import Linki from 'next.link';
+import Link from 'next/link';
+import styles from './NavBar.module.css';
 
 export default function NavBar() {
-    return(
-        <nav style = {{padding: '10px', background: '#f2f2f2'}} >
-            <Link href="/products" style={{margin: '0 10px'}}> Products</Link>
-            <Link href="/profile" style={{margin: '0 10px'}}> Profile </Link>
-            <Link href="/cart" style={{margin: '0 10px'}}> Cart </Link>
-        </nav>
-    );
+  return (
+    <nav style={{ padding: 15, background: '#eee' }}>
+      <Link href="/products">Products</Link> |{' '}
+      <Link href="/profile">Profile</Link> |{' '}
+      <Link href="/cart">Cart</Link>
+    </nav>
+  );
 }

@@ -1,39 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import styles from './products.module.css';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-     .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-        setLoading(false);
-      });
+      .then(res => res.json())
+      .then(data => setProducts(data));
   }, []);
 
-  
-  if (loading) return <p>Loading products...</p>;
-
   return (
-    <div style={{ padding: '20px' }}>
+    <div>
       <h1>Products</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+
+      <div className={styles.container}>
         {products.map(product => (
-          <div key={product.id} style={{ border: '1px solid #ccc', padding: '10px', width: '200px' }}>
-            <img src={product.image} alt={product.title} style={{ width: '100px', height: '100px' }} />
-            <h3>{product.title}</h3>
+          <div key={product.id} className={styles.card}>
+            <img src={product.image} alt={product.title} />
+            <h4>{product.title}</h4>
             <p>${product.price}</p>
+
+            <Link href={`/products/details/${product.id}`}>
+              View Details
+            </Link>
           </div>
         ))}
       </div>
     </div>
   );
-}
-
-export default function ProductsPage() {
-    return <h1>Products Page </h1>;
 }

@@ -1,0 +1,21 @@
+.details {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.details img {
+  width: 250px;
+  object-fit: contain;
+}
+
+.info h1 {
+  margin-bottom: 10px;
+}
+
+.info p {
+  margin: 5px 0;
+}
