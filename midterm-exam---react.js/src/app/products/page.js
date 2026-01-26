@@ -33,3 +33,9 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+import ProductCard from './productCard.js';
+
+{products.map(product => (
+  <ProductCard key={product.id} product={product} />
+))}

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "./globals.css";
+import Providers from "./redux/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +23,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NavBar />
-        <main style={{ padding: 20 }}>{children}</main>
-        <Footer />
+        <Providers>
+          <NavBar />
+          <main style={{ padding: 20 }}>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
