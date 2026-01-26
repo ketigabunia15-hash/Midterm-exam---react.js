@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from './products.module.css';
+import ProductCard from '../../components/productCard'; 
+import styles from '../../components/products.module.css';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -19,23 +20,9 @@ export default function ProductsPage() {
 
       <div className={styles.container}>
         {products.map(product => (
-          <div key={product.id} className={styles.card}>
-            <img src={product.image} alt={product.title} />
-            <h4>{product.title}</h4>
-            <p>${product.price}</p>
-
-            <Link href={`/products/details/${product.id}`}>
-              View Details
-            </Link>
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
   );
 }
-
-import ProductCard from './productCard.js';
-
-{products.map(product => (
-  <ProductCard key={product.id} product={product} />
-))}
