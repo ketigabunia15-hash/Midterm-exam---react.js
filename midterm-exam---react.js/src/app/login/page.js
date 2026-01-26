@@ -18,10 +18,11 @@ export default function LoginPage() {
   });
   const [error, setError] = useState('');
 
+  // თუ token არის localStorage-ში, ავტომატურად გადამისამართება
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      router.push('/profile'); 
+      router.push('/profile');
     }
   }, [router]);
 
@@ -42,7 +43,7 @@ export default function LoginPage() {
         if (data.remember) {
           localStorage.setItem('token', result.token);
         }
-        router.push('/profile'); 
+        router.push('/profile'); // წარმატებით შესვლის შემდეგ პროფილზე გადამისამართება
       } else {
         setError('Invalid username or password');
       }
