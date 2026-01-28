@@ -44,11 +44,13 @@ export default function ProfilePage() {
   return (
     <div className={styles.profileContainer}>
       <div className={styles.info}>
-        <h2>User Profile</h2>
+        <h2>Welcome {user.name.firstname}</h2>
         <p><b>Username:</b> {user.username}</p>
         <p><b>Email:</b> {user.email}</p>
         <p><b>Full Name:</b> {user.name.firstname} {user.name.lastname}</p>
         <p><b>Phone:</b> {user.phone}</p>
+        <p><b>Address:</b> {user.address?.street}, {user.address?.city}</p>
+        <p><b>Zip Code:</b> {user.address?.zipcode}</p>
 
         <button className={styles.logoutBtn} onClick={handleLogout}>
           Log out
