@@ -2,18 +2,38 @@
   display: flex;
   gap: 20px;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
-.details img {
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
+.image {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.info {
+  flex: 1;
 }
 
 .info h1 {
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
 }
 
 .info p {
   margin: 5px 0;
+}
+
+.addButton {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #005bb5;
 }
