@@ -1,0 +1,36 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartItem {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.cartItem img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.info h3 {
+  margin: 0;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.qty button {
+  width: 25px;
+  height: 25px;
+}

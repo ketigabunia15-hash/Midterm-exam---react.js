@@ -2,30 +2,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 
 .card {
   border: 1px solid #ccc;
-  width: 220px;
+  border-radius: 8px;
   padding: 10px;
-  background: #fff;
-  border-radius: 10px;
+  width: 200px;
   text-align: center;
 }
 
 .card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
-.card h4 {
-  font-size: 14px;
-  height: 40px;
-  overflow: hidden;
-}
-
-.card p {
-  font-weight: 600;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }

@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import styles from './profile.module.css';
 
 export default function ProfilePage() {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -19,7 +20,7 @@ export default function ProfilePage() {
 
     async function getProfile() {
       try {
-        const res = await fetch('https://fakestoreapi.com/users/3'); 
+        const res = await fetch('https://fakestoreapi.com/users/3');
         const data = await res.json();
         setUser(data);
       } catch (err) {
@@ -41,18 +42,27 @@ export default function ProfilePage() {
   if (!user) return <p>Profile not found</p>;
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Profile</h1>
-      <p>Name: {user.name.firstname} {user.name.lastname}</p>
-      <p>Email: {user.email}</p>
-      <p>Username: {user.username}</p>
+    <div className={styles.profileContainer}>
+      <div className={styles.info}>
+        <h2>User Profile</h2>
+        <p><b>Username:</b> {user.username}</p>
+        <p><b>Email:</b> {user.email}</p>
+        <p><b>Full Name:</b> {user.name.firstname} {user.name.lastname}</p>
+        <p><b>Phone:</b> {user.phone}</p>
 
-      <button 
-        onClick={handleLogout} 
-        style={{ marginTop: '20px', padding: '10px', cursor: 'pointer' }}
-      >
-        Log Out
-      </button>
+        <button className={styles.logoutBtn} onClick={handleLogout}>
+          Log out
+        </button>
+      </div>
+
+      <div className={styles.avatar}>
+        <Image
+          src="/unnamed.jpg"
+          alt="User avatar"
+          width={160}
+          height={160}
+        />
+      </div>
     </div>
   );
 }
