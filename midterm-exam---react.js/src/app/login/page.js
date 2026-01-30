@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import styles from './login.module.css';
+
 
 const schema = yup.object().shape({
   username: yup.string().required('Username is required'),
@@ -18,7 +20,6 @@ export default function LoginPage() {
   });
   const [error, setError] = useState('');
 
-  // თუ token არის localStorage-ში, ავტომატურად გადამისამართება
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -43,7 +44,7 @@ export default function LoginPage() {
         if (data.remember) {
           localStorage.setItem('token', result.token);
         }
-        router.push('/profile'); // წარმატებით შესვლის შემდეგ პროფილზე გადამისამართება
+        router.push('/profile'); 
       } else {
         setError('Invalid username or password');
       }
@@ -53,31 +54,42 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto' }}>
-      <h1>Login</h1>
+  <div className={styles.container}>
+    <div className={styles.card}>
+      <h1 className={styles.title}>Login</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <input {...register('username')} placeholder="Username" />
-          <p style={{ color: 'red' }}>{errors.username?.message}</p>
+        <div className={styles.inputGroup}>
+          <input
+            className={styles.input}
+            {...register('username')}
+            placeholder="Username"
+          />
+          <p className={styles.error}>{errors.username?.message}</p>
         </div>
 
-        <div>
-          <input {...register('password')} type="password" placeholder="Password" />
-          <p style={{ color: 'red' }}>{errors.password?.message}</p>
+        <div className={styles.inputGroup}>
+          <input
+            className={styles.input}
+            {...register('password')}
+            type="password"
+            placeholder="Password"
+          />
+          <p className={styles.error}>{errors.password?.message}</p>
         </div>
 
-        <div>
-          <label>
-            <input type="checkbox" {...register('remember')} />
-            Remember Me
-          </label>
+        <div className={styles.checkbox}>
+          <input type="checkbox" {...register('remember')} />
+          <label>Remember Me</label>
         </div>
 
-        <button type="submit">Login</button>
+        <button className={styles.button} type="submit">
+          Login
+        </button>
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
-  );
+  </div>
+);
 }
