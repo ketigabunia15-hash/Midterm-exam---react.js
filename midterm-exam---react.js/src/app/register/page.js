@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import styles from './register.module.css';
+import styles from '../login/login.module.css';
 
 export default function RegisterPage() {
   const router = useRouter();

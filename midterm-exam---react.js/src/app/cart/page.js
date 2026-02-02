@@ -9,7 +9,7 @@ export default function CartPage() {
   const totalPrice = useSelector(state => state.cart.totalPrice);
   const dispatch = useDispatch();
 
-  if (items.length === 0) return <p>Your cart is empty.</p>;
+  if (items.length === 0) return <p>Your cart is empty.</p>; 
 
   return (
     <div>

@@ -11,17 +11,16 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if token exists in localStorage
     const token = localStorage.getItem('token');
 
     if (!token) {
-      router.push('/login'); // Redirect if not logged in
+      router.push('/login'); 
       return;
     }
 
     async function getProfile() {
       try {
-        const res = await fetch('https://fakestoreapi.com/users/3'); // ან რეალური API
+        const res = await fetch('https://fakestoreapi.com/users/3'); 
         const data = await res.json();
         setUser(data);
       } catch (err) {
@@ -35,8 +34,8 @@ export default function ProfilePage() {
   }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // წაშალე token
-    router.push('/login');            // redirect Login page-ზე
+    localStorage.removeItem('token'); 
+    router.push('/login');            
   };
 
   if (loading) return <p>Loading profile...</p>;
